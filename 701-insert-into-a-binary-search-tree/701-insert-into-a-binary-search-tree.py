@@ -8,20 +8,10 @@ class Solution:
     def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         if root == None:
             return TreeNode(val=val)
-        self.insertRecur(root, val)
-        return root
-    
-    # root is not none
-    def insertRecur(self, root: TreeNode, val: int) -> None:
-        # insert to left
+        
         if root.val > val:
-            if root.left == None:
-                root.left = TreeNode(val=val)
-            else:
-                self.insertRecur(root.left, val)
-        # insert to right
+            root.left = self.insertIntoBST(root.left, val)
         else:
-            if root.right == None:
-                root.right = TreeNode(val=val)
-            else:
-                self.insertRecur(root.right, val)
+            root.right = self.insertIntoBST(root.right, val)
+        
+        return root
