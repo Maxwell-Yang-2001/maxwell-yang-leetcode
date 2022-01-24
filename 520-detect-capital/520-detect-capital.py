@@ -1,18 +1,7 @@
 class Solution:
     def detectCapitalUse(self, word: str) -> bool:
-        if len(word) == 1:
-            return True
+        if word[0] >= 'a':
+            return word[1:].lower() == word[1:]
         
-        # cannot capitalize everything except the first
-        if word[0] >= 'a' and word[1] < 'a':
-            return False
-        
-        cap = word[1] < 'a'
-        
-        for i in range(2, len(word)):
-            curr_cap = word[i] < 'a'
-            if (cap and not curr_cap) or (not cap and curr_cap):
-                return False
-        
-        return True
+        return word[1:].lower() == word[1:] or word[1:].upper() == word[1:]
                 
