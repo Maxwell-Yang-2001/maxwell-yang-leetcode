@@ -23,6 +23,11 @@ class Solution:
             
             group_clear, group_add = groups[group1_num], groups[group2_num]
             
+            # swap group to apply minimum changes
+            if (len(group_clear) > len(group_add)):
+                group_clear, group_add = group_add, group_clear
+                group1_num, group2_num = group2_num, group1_num
+            
             # add everything in group_clear to group_add, no need to clear from old list
             for i in group_clear:
                 group_add.append(i)
