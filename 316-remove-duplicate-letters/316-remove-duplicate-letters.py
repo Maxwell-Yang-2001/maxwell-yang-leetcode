@@ -15,9 +15,6 @@ class Solution:
         prev_i = 0
         i = 0
         while letters:
-            print(i)
-            print(freq)
-            print(letters)
             fullfilled = False;
             while True:
                 if s[i] in freq:
