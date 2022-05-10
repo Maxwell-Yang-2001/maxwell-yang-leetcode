@@ -7,10 +7,10 @@ class Solution:
                     result.append(list(combination))
                 return
         
-            for i in range(start, 9):
-                combination.append(i + 1)
-                recur(target - i - 1, combination, i + 1)
+            for i in range(start, 10):
+                combination.append(i)
+                recur(target - i, combination, i + 1)
                 combination.pop()
         
-        recur(n, [], 0)
+        recur(n, [], 1)
         return result
